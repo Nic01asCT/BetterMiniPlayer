@@ -5,7 +5,6 @@ import styles from './current.module.css'
 export default function Current({}) {
     const divRef = useRef(null)
 
-    const [open, setOpen] = useState(0)
     const [playing, setPlaying] = useState(false)
     
     const backward = () => {
@@ -20,33 +19,13 @@ export default function Current({}) {
         
     }
 
-    const getSize = () => {
-        if (divRef.current) {
-            const { width, height } = divRef.current.getBoundingClientRect()
-            window.electron.ipcRenderer.send('windowChange', 717, 320)
-        }
+    const resize = (state) => {
+        if (!state) return setTimeout(() => window.electron.ipcRenderer.send('windowChange', 192, 56), 500)
+        window.electron.ipcRenderer.send('windowChange', 717, 320)
     }
 
-    useEffect(() => {
-        getSize()
-
-        const resizeObserver = new ResizeObserver(entries => {
-            for (let entry of entries) {
-                getSize()
-            }
-        })
-      
-        if (divRef.current) {
-            resizeObserver.observe(divRef.current)
-        }
-      
-        return () => {
-            resizeObserver.disconnect()
-        }
-    }, [])
-
     return (
-        <div className={styles.wrapper} ref={divRef}>
+        <div className={styles.wrapper} onMouseEnter={() => resize(true)} onMouseLeave={() => resize(false)} ref={divRef}>
             <div className={styles.info}>
                 <div className={styles.cover}></div>
                 <div>
@@ -65,7 +44,7 @@ export default function Current({}) {
                 </div>
                 <div className={styles.icon}/>
             </div>
-            <div className={`${styles.timeline} ${ open < 1 ? styles.tlClosed : '' }`}>
+            <div className={styles.timeline}>
                 <span>1:17</span>
                 <div className={styles.bar}></div>
                 <span>-1:17</span>
