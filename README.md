@@ -1,4 +1,4 @@
-# shakeit
+# TuneChronicle
 
 An Electron application with React
 
