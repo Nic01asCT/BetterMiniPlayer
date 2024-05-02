@@ -20,8 +20,9 @@ export default function Current({}) {
     }
 
     const resize = (state) => {
-        if (!state) return setTimeout(() => window.electron.ipcRenderer.send('windowChange', 192, 56), 500)
+        if (!state) return setTimeout(() => window.electron.ipcRenderer.send('windowChange', 160, 56), 500)
         window.electron.ipcRenderer.send('windowChange', 717, 320)
+        setTimeout(() => window.electron.ipcRenderer.send('windowChange', 717, 320), 500)
     }
 
     return (
