@@ -34,7 +34,7 @@
 
 .wrapper:hover {
     padding: 2em;
-    min-width: 370px;
+    min-width: 717px;
 
     & .timeline > span {
         opacity: 1;
