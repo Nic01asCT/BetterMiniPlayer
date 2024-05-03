@@ -1,4 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
+
+import Options from './options.jsx'
 
 import styles from './current.module.css'
 
@@ -44,7 +46,11 @@ export default function Current({}) {
                     </div>
                 </div>
                 <div className={styles.icon}/>
-            </div>
+                    <span></span>
+                    {
+                        //<Options />
+                    }
+                </div>
             <div className={styles.timeline}>
                 <span>1:17</span>
                 <div className={styles.bar}></div>
