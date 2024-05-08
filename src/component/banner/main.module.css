@@ -83,6 +83,8 @@
 }
 
 .trigger {
+    z-index: 800;
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,9 +98,6 @@
 }
 
 .trigger > span {
-    z-index: 999;
-    position: relative;
-
     display: flex;
     justify-content: center;
     align-items: center;

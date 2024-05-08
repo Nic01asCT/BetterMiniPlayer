@@ -43,12 +43,17 @@
         transition: 0.5s ease 1s !important;
     }
 
-    & > div:not(:first-child) {
+    & > div:last-child {
         width: 100% !important;
+    }
+
+    & .vol {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-.wrapper > div:not(:first-child) {
+.wrapper > div:last-child {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -119,4 +124,10 @@
 
     transition: 0.5s ease;
     border-radius: 5px;
+}
+
+.vol {
+    opacity: 0;
+    transform: translateY(-1em);
+    transition: 0.5s ease 0.75s;
 }

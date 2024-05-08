@@ -25,7 +25,7 @@
 
     content: '';
 
-    width: var(--time, 0%);
+    width: var(--time, 0);
     height: 0.5em;
 
     background-color: rgb(172, 169, 177);
