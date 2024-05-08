@@ -13,8 +13,16 @@
     --min-logo-size: 70px;
     --icon: url(./assets/icons/Spotify_Icon_RGB_White.png);
     --logo: url(./assets/logos/Spotify_Logo_RGB_White.png);
+
     --dark: #191414;
+    --dark-hover: #1914147f;
     --light: #ffffff;
+    --light-hover: #ffffff7f;
+
+    --min-width-closed: 10em;
+    --width-open: 45em;
+
+    user-select: none !important;
 }
 
 body {

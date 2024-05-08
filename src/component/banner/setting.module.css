@@ -1,0 +1,32 @@
+.wrapper {
+    z-index: 900;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 11px calc(1em + 11px) 0 0;
+}
+
+.icon {
+    position: relative;
+    width: var(--min-logo-size);
+    height: var(--min-logo-size);
+    
+    /*background-color: var(--dark)*/;
+    border-radius: 100vh;
+}
+
+.icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    content: '';
+    
+    width: 100%;
+    height: 100%;
+
+    background-image: var(--icon);
+    background-size: cover;
+    background-position: center;
+}

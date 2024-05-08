@@ -1,9 +1,9 @@
-import Current from './component/current'
+import Banner from './component/banner/main'
 
 export default function App() {
     return (
         <>
-            <Current />
+            <Banner />
         </>
     )
 }

@@ -1,0 +1,33 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+}
+
+.timeline {
+    position: relative;
+    overflow: hidden;
+
+    height: 0.5em;
+    width: calc(100% - 7em);
+
+    margin: auto 0.5em auto 0.5em;
+
+    background-color: rgb(67, 65, 66);
+    border-radius: 100vh;
+}
+
+.timeline::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    content: '';
+
+    width: var(--time, 0%);
+    height: 0.5em;
+
+    background-color: rgb(172, 169, 177);
+    border-radius: 100vh;
+}
