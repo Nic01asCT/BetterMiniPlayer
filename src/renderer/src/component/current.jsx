@@ -46,10 +46,6 @@ export default function Current({}) {
                     </div>
                 </div>
                 <div className={styles.icon}/>
-                    <span></span>
-                    {
-                        //<Options />
-                    }
                 </div>
             <div className={styles.timeline}>
                 <span>1:17</span>
