@@ -16,8 +16,6 @@ async function login(req, res, next) {
         state: generateRandomString(16)
     })}`)
 
-    console.log('login')
-
     next()
 }
 
@@ -34,7 +32,7 @@ async function callback(req, res, next) {
             url: 'https://accounts.spotify.com/api/token',
             form: {
                 code,
-                redirect_uri: get(`REDIRECT_URI`),
+                redirect_uri: get(`FRONTEND_URI`),
                 grant_type: 'authorization_code'
             },
             headers: {
@@ -43,8 +41,6 @@ async function callback(req, res, next) {
             },
             json: true
         }
-
-        console.log(authOptions)
     }
 }
   
