@@ -16,12 +16,16 @@ async function login(req, res, next) {
         state: generateRandomString(16)
     })}`)
 
+    console.log('login')
+
     next()
 }
 
 async function callback(req, res, next) {
     const code = req.query.code || null
     const state = req.query.state || null
+
+    console.log('callback')
 
     if (state === null) {
         res.redirect(`/#${ querystring.stringify({ error: 'state_mismatch' }) }`)
