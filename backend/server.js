@@ -14,6 +14,10 @@ const tokenController = require('./routes/token/token')
 
 app.use('/api/token', tokenController)
 
+app.get('/test', (req, res) => {
+    res.status(200).send('trust')
+})
+
 app.listen(3000, () => {
     console.log("Server started on port 3000")
 })
