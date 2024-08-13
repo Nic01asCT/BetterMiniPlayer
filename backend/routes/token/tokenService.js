@@ -49,16 +49,7 @@ async function callback(req, res, next) {
             if (tokenResponse.status != 200) return res.redirect(`/#${qs.stringify({ error: 'invalid_token' })}`)
             const { access_token, refresh_token } = tokenResponse.data;
 
-            const userOptions = {
-                url: 'https://api.spotify.com/v1/me',
-                headers: { 'Authorization': 'Bearer ' + access_token }
-            }
-
-            const userResponse = await axios.get(userOptions.url, { headers: userOptions.headers });
-
-            console.log(userResponse.data)
-
-            res.redirect(`/#${qs.stringify({ access_token: access_token, refresh_token: refresh_token })}`)
+            res.token = { access_token, refresh_token }
         } catch (err) {
             console.error('Error during token exchange or user info fetch:', err.message)
             res.redirect(`/#${qs.stringify({ error: 'invalid_token' })}`)
@@ -90,7 +81,7 @@ async function refresh(req, res, next) {
         if (response.status != 200) return res.status(response.status).send({ error: 'Failed to refresh token', details: response.data })
         const { access_token, refresh_token } = response.data
 
-        res.send({ access_token, refresh_token })
+        res.token = { access_token, refresh_token }
     } catch (err) {
         console.error('Error during token refresh:', err.message)
         res.status(500).send({ error: 'Internal Server Error', message: err.message })
