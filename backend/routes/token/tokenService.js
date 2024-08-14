@@ -27,7 +27,7 @@ async function callback(req, res, next) {
     const state = req.query.state || null
     
     if (state === null) {
-        res.redirect(`/#${ qs.stringify({ error: 'state_mismatch' }) }`)
+        return res.status(400).json({ error: 'state_mismatch' })
     } else {
         const authOptions = {
             method: 'POST',
@@ -46,13 +46,14 @@ async function callback(req, res, next) {
         try {
             const tokenResponse = await axios(authOptions)
 
-            if (tokenResponse.status != 200) return res.redirect(`/#${qs.stringify({ error: 'invalid_token' })}`)
-            const { access_token, refresh_token } = tokenResponse.data;
+            if (tokenResponse.status !== 200) return res.status(tokenResponse.status).json({ error: 'invalid_token' })
+
+            const { access_token, refresh_token } = tokenResponse.data
 
             res.token = { access_token, refresh_token }
         } catch (err) {
-            console.error('Error during token exchange or user info fetch:', err.message)
-            res.redirect(`/#${qs.stringify({ error: 'invalid_token' })}`)
+            console.error('Error during token exchange:', err.message)
+            return res.status(500).json({ error: 'invalid_token', message: err.message })
         }
     }
 
@@ -60,7 +61,7 @@ async function callback(req, res, next) {
 }
 
 async function refresh(req, res, next) {
-    const refresh_token = req.query.refresh_token;
+    const refresh_token = req.query.refresh_token
 
     const authOptions = {
         method: 'POST',
@@ -78,13 +79,14 @@ async function refresh(req, res, next) {
     try {
         const response = await axios(authOptions)
 
-        if (response.status != 200) return res.status(response.status).send({ error: 'Failed to refresh token', details: response.data })
+        if (response.status !== 200) return res.status(response.status).json({ error: 'Failed to refresh token', details: response.data })
+
         const { access_token, refresh_token } = response.data
 
         res.token = { access_token, refresh_token }
     } catch (err) {
         console.error('Error during token refresh:', err.message)
-        res.status(500).send({ error: 'Internal Server Error', message: err.message })
+        return res.status(500).json({ error: 'Internal Server Error', message: err.message })
     }
 
     next()
