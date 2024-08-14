@@ -50,7 +50,10 @@ async function callback(req, res, next) {
 
             const { access_token, refresh_token } = tokenResponse.data
 
-            res.token = { access_token, refresh_token }
+            res.redirect(`${get('FRONTEND_URI')}?${qs.stringify({
+                access_token,
+                refresh_token
+            })}`)
         } catch (err) {
             console.error('Error during token exchange:', err.message)
             return res.status(500).json({ error: 'invalid_token', message: err.message })
@@ -83,7 +86,10 @@ async function refresh(req, res, next) {
 
         const { access_token, refresh_token } = response.data
 
-        res.token = { access_token, refresh_token }
+        res.redirect(`${get('FRONTEND_URI')}?${qs.stringify({
+            access_token,
+            refresh_token
+        })}`)
     } catch (err) {
         console.error('Error during token refresh:', err.message)
         return res.status(500).json({ error: 'Internal Server Error', message: err.message })
