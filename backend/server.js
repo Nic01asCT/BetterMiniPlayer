@@ -4,11 +4,13 @@ const cors = require('cors')
 const express = require('express')
 const cookieParser = require('cookie-parser')
 
+const { get } = require('./routes/env/env')
+
 const app = express()
 
 app.use(express.json())
 .use(cors({
-    origin: 'https://bmpapi.nicolasthoeni.com'
+    origin: get('FRONTEND_URI')
 }))
 .use(cookieParser())
 
