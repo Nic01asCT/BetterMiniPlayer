@@ -1,0 +1,19 @@
+.wrapper {
+    transition: 0.5s;
+}
+
+.wrapper > svg {
+    position: absolute;
+}
+
+.wrapper > svg:first-child {
+    translate: 0 -15%;
+}
+
+.wrapper > svg:last-child {
+    translate: 0 15%;
+}
+
+.open {
+    rotate: 180deg;
+}

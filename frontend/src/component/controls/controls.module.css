@@ -1,0 +1,41 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    height: 0;
+    
+    margin: 0 1rem;
+    
+    opacity: 0;
+    transition: 0.5s height, 0.25s opacity;
+}
+
+.wrapper span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    width: 2em;
+    height: 2em;
+}
+
+.wrapper span:hover > svg {
+    fill: var(--light-hover);
+    transform: translateY(-0.25rem);
+}
+
+.wrapper > div {
+    display: flex;
+}
+
+.wrapper svg {
+    height: 1.5rem;
+    fill: var(--light);
+    transition: 0.5s;
+}
+
+.open {
+    height: 2rem;
+    opacity: 1;
+}

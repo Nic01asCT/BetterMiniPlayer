@@ -1,0 +1,44 @@
+.wrapper {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    overflow: hidden;
+
+    padding: 0.5em;
+    width: var(--min-width-closed);
+    min-height: 2em;
+
+    border-radius: 1em;
+    transition: 0.5s;
+}
+
+.wrapper::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    content: '';
+
+    width: calc(var(--width-open) + 1rem);
+    aspect-ratio: 1/1;
+
+    background-image: url('./assets/preset/cover.png');
+    background-size: cover;
+    filter: blur(100px);
+    
+    transform: translate(-50%, -50%);
+    transition: 0.5s 0.5s;
+}
+
+.wrapper > :not(:nth-child(0)) {
+    position: relative;
+}
+
+.hover {
+    width: calc(var(--width-open) / 2);
+}
+
+.open {
+    width: calc(var(--width-open));
+}
