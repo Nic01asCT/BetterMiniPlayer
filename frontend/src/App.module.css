@@ -39,6 +39,14 @@
     width: calc(var(--width-open) / 2);
 }
 
+.hover:before {
+    filter: blur(50px);
+}
+
 .open {
     width: calc(var(--width-open));
+}
+
+.open:before {
+    filter: blur(25px);
 }

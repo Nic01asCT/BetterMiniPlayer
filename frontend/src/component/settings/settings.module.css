@@ -1,0 +1,109 @@
+.wrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    height: var(--min-logo-size);
+    width: var(--min-logo-size);
+
+    opacity: 0;
+    transform: translateY(-1rem);
+    transition: 0.5s;
+}
+
+.open {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.wrapper::before {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    content: '';
+
+    width: calc(var(--min-logo-size) - 4px);
+    height: calc(var(--min-logo-size) - 4px);
+
+    background-color: var(--dark);
+    border-radius: 100vh;
+}
+
+.wrapper::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    content: '';
+
+    width: var(--min-logo-size);
+    height: var(--min-logo-size);
+
+    background-image: var(--icon);
+    background-size: cover;
+    background-position: center;
+}
+
+.wrapper:hover {
+    height: calc(var(--min-logo-size) + 3.5em);
+    width: calc(var(--min-logo-size) + 3.5em);
+}
+
+.wrapper > span {
+    position: absolute;
+    top: calc(var(--min-logo-size) / 2);
+    right: calc(var(--min-logo-size) / 2);
+
+    width: 1.5rem;
+    height: 1.5rem;
+
+    fill: var(--light);
+
+    translate: 50% -50%;
+    transition: 0.25s;
+    
+    > span {
+        opacity: 0;
+        transform: translateY(0);
+        transition: 0.25s 0.25s ease-in-out;
+    }
+
+    > span:hover {
+        fill: var(--light-hover);
+        scale: 1.1;
+    }
+}
+
+.wrapper:hover > span {
+    > span {
+        transform: translateY(3.5em);
+        opacity: 1;
+        transition: 0.25s linear;
+    }
+    
+    &:nth-child(2) {
+        transform: rotate(45deg);
+        opacity: 1;
+        transition: 0.25s 0.25s;
+    }
+    
+    &:nth-child(3) {
+        transform: rotate(90deg);
+        opacity: 1;
+        transition: 0.25s 0.25s;
+    }
+}
+
+.wrapper > span > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+}

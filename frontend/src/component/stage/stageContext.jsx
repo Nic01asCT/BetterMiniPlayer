@@ -23,7 +23,7 @@ export default function StageProvider({ children }) {
         
         setStage(prev => prev - 1)
         setCooldown(true)
-        if (stage == 5) return setTimeout(() => { setCooldown(false) }, 1000)
+        if (stage == 5) return setTimeout(() => { setCooldown(false) }, 1250)
         setTimeout(() => { setCooldown(false) }, 500)
     }
     

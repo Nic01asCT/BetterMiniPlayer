@@ -48,14 +48,14 @@
 .info > * {
     opacity: 0;
     transform: translateY(-1rem);
-    transition: 0.5s 0.25s;
+    transition: 0.5s 0.5s;
 }
 
 .info > h2 { margin-bottom: 0.2em; }
 .info > h2 {
     opacity: 0;
     transform: translateY(-1rem);
-    transition: 0.5s;
+    transition: 0.5s 0.25s;
 }
 
 .show {

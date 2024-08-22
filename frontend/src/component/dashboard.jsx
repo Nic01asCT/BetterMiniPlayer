@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useStage } from './stage/stageContext'
 
 import Volume from './volume'
+import Settings from './settings/settings'
 
 import styles from './dahsboard.module.css'
 
@@ -24,6 +25,7 @@ export default function Dashboard() {
                 </div>
             </div>
             <Volume />
+            <Settings />
         </div>
     )
 }
