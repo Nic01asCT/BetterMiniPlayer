@@ -22,6 +22,8 @@
     --min-width-closed: 10em;
     --width-open: 45em;
 
+    --background-img: url('../src/assets/preset/cover.png');
+
     user-select: none !important;
 }
 

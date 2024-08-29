@@ -27,10 +27,13 @@ export default function App() {
     }
 
     return (
+        <>
         <div onMouseEnter={handleOn} onMouseLeave={handleOff} className={getStyles()}>
             <Dashboard />
             <Controls />
+            { /*next track (name and first artist)*/ }
             <Timeline />
         </div>
+        </>
     )
 }

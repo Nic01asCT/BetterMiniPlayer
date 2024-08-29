@@ -51,16 +51,27 @@
     transition: 0.5s 0.5s;
 }
 
-.media > svg {
+.media > span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     fill: var(--light);
     height: 1.5em;
+    width: 1.5em;
 
     opacity: 0;
+
     transform: translateY(-0.5em);
     transition: 0.5s 0.5s;
+    
+    > svg {
+        height: 1.5em;
+        transition: 0.5s;
+    }
 }
 
-.media > svg:hover {
+.media > span:hover > svg {
     fill: var(--light-hover);
     transform: translateY(-0.25em) !important;
 }
@@ -71,7 +82,7 @@
     opacity: 0;
 }
 
-.hover > svg {
+.hover > span {
     transform: translateY(0);
     transition: 0.5s;
     opacity: 1;

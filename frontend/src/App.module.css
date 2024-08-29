@@ -23,12 +23,13 @@
     width: calc(var(--width-open) + 1rem);
     aspect-ratio: 1/1;
 
-    background-image: url('./assets/preset/cover.png');
+    opacity: 0.75;
+    background-image: var(--background-img);
     background-size: cover;
     filter: blur(100px);
     
     transform: translate(-50%, -50%);
-    transition: 0.5s 0.5s;
+    transition: 0.5s;
 }
 
 .wrapper > :not(:nth-child(0)) {

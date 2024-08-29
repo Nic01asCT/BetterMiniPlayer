@@ -17,7 +17,6 @@
 
     height: 100%;
     aspect-ratio: 1/1;
-
 }
 
 .cover > img {
@@ -26,7 +25,7 @@
     left: 100px;
     
     height: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: 0.5s;
 }
 
@@ -42,7 +41,15 @@
     justify-content: center;
     flex-direction: column;
 
-    padding-left: 2rem;
+    margin: auto 0 auto 1rem;
+    padding: 0.5rem;
+
+    background-color: var(--dark-hover);
+    border-radius: 10px;
+
+    opacity: 0;
+    transform: translateY(-1rem);
+    transition: 0.5s;
 }
 
 .info > * {
@@ -51,11 +58,16 @@
     transition: 0.5s 0.5s;
 }
 
-.info > h2 { margin-bottom: 0.2em; }
+.info > h2 { margin: 0 0 0.2em 0; }
 .info > h2 {
     opacity: 0;
     transform: translateY(-1rem);
     transition: 0.5s 0.25s;
+}
+
+.background {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .show {
@@ -63,15 +75,13 @@
     transform: translateY(0) !important;
 }
 
-.artists {
-    color: var(--light-hover);
-}
-
 .artists > a {
     cursor: pointer;
+    color: var(--light-hover);
+    text-decoration: none;
     transition: 0.5s;
 }
 
 .artists > a:hover {
-    color: var(--dark-hover);
+    color: lightgray;
 }

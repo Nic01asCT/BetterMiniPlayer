@@ -6,7 +6,7 @@ export default function Open() {
     const { stage, maxStages, changeBuffer } = useStage()
 
     const changeStage = () => {
-        if (stage == maxStages) return changeBuffer.set(2)
+        if (stage == maxStages) return changeBuffer.set(0)
         changeBuffer.set(maxStages)
     }
 
